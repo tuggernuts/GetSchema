@@ -8,7 +8,8 @@ namespace ClassLibrary
 {
     public class SomeClass
     {
-        private const string CONN_STRING = "Data Source=tcp:otto.4broadcast.net;Initial Catalog=vodka2_dev;Integrated Security=True;Persist Security Info=True;TrustServerCertificate=True";
+        //todo: set connection string as necessary
+        private const string CONN_STRING = "my string";
         public DataTable GetSchema()
         {
             try
@@ -20,8 +21,9 @@ namespace ClassLibrary
                     connection.Open();
                     if (connection.State == ConnectionState.Open)
                     {
+                        // these are sample array elements, change accordingly
                         var table = connection.GetSchema("columns",
-                            new[] {"vodka2_dev", "dbo", "Companies", null});
+                            new[] {"catalog", "dbo", "table", null});
                         return table;
                     }
 
